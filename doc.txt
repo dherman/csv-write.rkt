@@ -1,0 +1,43 @@
+_csv-write_
+
+This collection provides one file:
+
+ _csv-write.ss_: generates CSV-formatted output.
+
+The CSV format is pretty simple, but it requires cells containing
+special characters to be properly escaped. This module provides
+utilities for formatting CSV data properly.
+
+======================================================================
+
+csv-write.ss
+------------
+
+> (format-cell x) : any -> string
+
+Formats a single CSV cell using the string representation of the
+argument (using the "~a" format specifier of _printf_).
+
+> (format-row ls) : (listof any) -> string
+
+Formats a row of CSV cells.
+
+> (format-table ls) : (listof (listof any)) -> (listof string)
+
+Formats a list of CSV rows.
+
+> (write-cell x [out]) : any [output-port] -> any
+
+Writes a single CSV cell using the string representation of the
+argument (using the "~a" format specifier of _printf_) to the
+given output port, which defaults to the current output port.
+
+> (write-row ls [out]) : (listof any) [output-port] -> any
+
+Writes a row of CSV cells to the given output port, which
+defaults to the current output port.
+
+> (write-table ls [out]) : (listof (listof any)) [output-port] -> any
+
+Writes a list of CSV rows to the given output port, which defaults
+to the current output port.
